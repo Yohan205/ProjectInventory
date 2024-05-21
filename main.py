@@ -1,3 +1,3 @@
-from Header import Inventory
-
+from Header import Inventory, pandora
+pandora()
 Inventory()
