@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Registro de ventas</string>
+   <string>Registro de Ventas</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>ICONOI.jpg</normaloff>ICONOI.jpg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -413,6 +417,34 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <string notr="true">background-color: rgb(225, 225, 225);
 font: 12pt &quot;Arial&quot;;
 border-radius: 12px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eAlerta">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>60</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 12pt &quot;Arial&quot;;
+color: rgb(213, 0, 0);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string>  Alerta</string>
     </property>
    </widget>
   </widget>

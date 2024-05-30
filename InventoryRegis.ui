@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InventoryHome</class>
- <widget class="QMainWindow" name="InventoryHome">
+ <class>AddProducts</class>
+ <widget class="QMainWindow" name="AddProducts">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Registro de ventas</string>
+   <string>Agregar Productos al Inventario</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>ICONOI.jpg</normaloff>ICONOI.jpg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -154,8 +158,8 @@ font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
    <widget class="QPushButton" name="addProd">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>320</y>
+      <x>240</x>
+      <y>300</y>
       <width>231</width>
       <height>41</height>
      </rect>
@@ -164,7 +168,7 @@ font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(73, 149, 66);
+     <string notr="true">background-color: rgb(220, 110, 0);
 color: rgb(255, 255, 255);
 border-radius:15px;
 font: 87 14pt &quot;Arial Black&quot;;</string>
@@ -176,8 +180,8 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
    <widget class="QPushButton" name="btnBackInv">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>370</y>
+      <x>310</x>
+      <y>350</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -186,7 +190,7 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(200, 15, 2);
+     <string notr="true">background-color: rgb(85, 0, 0);
 color: rgb(255, 255, 255);
 border-radius:15px;
 font: 87 14pt &quot;Arial Black&quot;;</string>

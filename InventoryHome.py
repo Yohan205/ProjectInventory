@@ -15,6 +15,9 @@ class Ui_InventoryHome(object):
     def setupUi(self, InventoryHome):
         InventoryHome.setObjectName("InventoryHome")
         InventoryHome.resize(659, 450)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("ICONOI.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        InventoryHome.setWindowIcon(icon)
         InventoryHome.setAutoFillBackground(False)
         InventoryHome.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));")
         self.centralwidget = QtWidgets.QWidget(InventoryHome)
@@ -182,7 +185,7 @@ class Ui_InventoryHome(object):
         self.addProductoVen = QtWidgets.QPushButton(self.centralwidget)
         self.addProductoVen.setGeometry(QtCore.QRect(400, 260, 231, 41))
         self.addProductoVen.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.addProductoVen.setStyleSheet("background-color: rgb(58, 152, 132);\n"
+        self.addProductoVen.setStyleSheet("background-color: rgb(99, 38, 140);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius:15px;\n"
 "font: 87 14pt \"Arial Black\";")
@@ -193,6 +196,20 @@ class Ui_InventoryHome(object):
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
         self.iRef.setObjectName("iRef")
+        self.eAlerta = QtWidgets.QLabel(self.centralwidget)
+        self.eAlerta.setGeometry(QtCore.QRect(280, 60, 71, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.eAlerta.setFont(font)
+        self.eAlerta.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 12pt \"Arial\";\n"
+"color: rgb(213, 0, 0);\n"
+"border-radius:10px;")
+        self.eAlerta.setObjectName("eAlerta")
         InventoryHome.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(InventoryHome)
         self.statusbar.setObjectName("statusbar")
@@ -203,7 +220,7 @@ class Ui_InventoryHome(object):
 
     def retranslateUi(self, InventoryHome):
         _translate = QtCore.QCoreApplication.translate
-        InventoryHome.setWindowTitle(_translate("InventoryHome", "Registro de ventas"))
+        InventoryHome.setWindowTitle(_translate("InventoryHome", "Registro de Ventas"))
         self.tittle.setText(_translate("InventoryHome", "REGISTRO DE VENTAS"))
         self.eProduct.setText(_translate("InventoryHome", "Producto:"))
         self.eCant.setText(_translate("InventoryHome", "Cantidad:"))
@@ -216,6 +233,7 @@ class Ui_InventoryHome(object):
         self.btnExit.setText(_translate("InventoryHome", "Salir"))
         self.eInformes.setText(_translate("InventoryHome", "INFORMES"))
         self.addProductoVen.setText(_translate("InventoryHome", "Agregar Producto"))
+        self.eAlerta.setText(_translate("InventoryHome", "  Alerta"))
 
 
 if __name__ == "__main__":
