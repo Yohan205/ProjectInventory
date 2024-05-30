@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddProducts</class>
+ <widget class="QMainWindow" name="AddProducts">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>659</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Agregar Productos al Inventario</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>ICONOI.jpg</normaloff>ICONOI.jpg</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="tittleInv">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>18</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+font: 87 18pt &quot;Arial Black&quot;;
+
+</string>
+    </property>
+    <property name="text">
+     <string>AGREGAR PRODUCTOS</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="iProductInv">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>160</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(225, 225, 225);
+font: 12pt &quot;Arial&quot;;
+border-radius: 12px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eProductInv">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>160</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tw Cen MT Condensed Extra Bold</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+
+font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Producto:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eCantInv">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tw Cen MT Condensed Extra Bold</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+font: 63 14pt &quot;Bahnschrift SemiBold&quot;;
+font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Cantidad:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eRefInv">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>200</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tw Cen MT Condensed Extra Bold</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+font: 63 14pt &quot;Bahnschrift SemiBold&quot;;
+font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Referencia:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addProd">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>300</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(220, 110, 0);
+color: rgb(255, 255, 255);
+border-radius:15px;
+font: 87 14pt &quot;Arial Black&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Agregar Producto</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBackInv">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>350</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 0, 0);
+color: rgb(255, 255, 255);
+border-radius:15px;
+font: 87 14pt &quot;Arial Black&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Atrás</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinCant">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>240</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(225, 225, 225);
+font: 12pt &quot;Arial&quot;;
+border-radius: 12px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tittle_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>70</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>18</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+font: 87 18pt &quot;Arial Black&quot;;
+
+</string>
+    </property>
+    <property name="text">
+     <string>AL INVENTARIO</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="iRefInv">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>200</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(225, 225, 225);
+font: 12pt &quot;Arial&quot;;
+border-radius: 12px;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
