@@ -9,6 +9,13 @@ os.makedirs('ProjectInventory/DataBase', exist_ok=True)
 
 class Inventory():
     def __init__(self):
+        self.ref = []
+        self.products = []
+        self.cant = ""
+        self.vlr = 0
+        self.product = ""
+        # slef
+
         app = QtWidgets.QApplication(sys.argv)
         InventoryHome = QtWidgets.QMainWindow()
         InventoryHome.setObjectName("InventoryHome")
@@ -30,6 +37,7 @@ class Inventory():
     "color: rgb(255, 255, 255);\n"
     "font: 87 14pt \"Arial\";")
         self.tittle.setObjectName("tittle")
+
         self.iProduct = QtWidgets.QLineEdit(self.centralwidget)
         self.iProduct.setGeometry(QtCore.QRect(120, 60, 181, 31))
         self.iProduct.setStyleSheet("background-color: rgb(225, 225, 225);\n"
@@ -50,6 +58,7 @@ class Inventory():
     "color: rgb(255, 255, 255);\n"
     "font: 87 14pt \"Arial\";")
         self.eProduct.setObjectName("eProduct")
+
         self.eCant = QtWidgets.QLabel(self.centralwidget)
         self.eCant.setGeometry(QtCore.QRect(30, 100, 91, 31))
         font = QtGui.QFont()
@@ -63,6 +72,7 @@ class Inventory():
     "color: rgb(255, 255, 255);\n"
     "font: 87 14pt \"Arial\";")
         self.eCant.setObjectName("eCant")
+
         self.eRef = QtWidgets.QLabel(self.centralwidget)
         self.eRef.setGeometry(QtCore.QRect(30, 140, 51, 31))
         font = QtGui.QFont()
@@ -119,7 +129,7 @@ class Inventory():
     "border-radius: 12px;")
         self.iUnit.setText("")
         self.iUnit.setObjectName("iUnit")
-        self.iUnit.textChanged.connect(self.calcTotal)
+        self.iUnit.textChanged.connect(self.fVlr)
         ######## Vr Total Line Edit #############
         self.iTotal = QtWidgets.QLineEdit(self.centralwidget)
         self.iTotal.setGeometry(QtCore.QRect(120, 220, 181, 31))
@@ -129,6 +139,7 @@ class Inventory():
         self.iTotal.setText("")
         self.iTotal.setReadOnly(True)
         self.iTotal.setObjectName("iTotal")
+        # self.iTotal.textChanged.connect(self.calcTotal)
         ######## Add Selling Button #############
         self.addSell = QtWidgets.QPushButton(self.centralwidget)
         self.addSell.setGeometry(QtCore.QRect(140, 280, 131, 41))
@@ -172,7 +183,7 @@ class Inventory():
     "font: 12pt \"Arial\";\n"
     "border-radius: 12px;")
         self.spinCant.setObjectName("spinCant")
-        self.spinCant.valueChanged.connect(self.calcTotal)
+        self.spinCant.valueChanged.connect(self.fCant)
         InventoryHome.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(InventoryHome)
         self.statusbar.setObjectName("statusbar")
@@ -197,27 +208,51 @@ class Inventory():
         self.reportDaily.setText(_translate("InventoryHome", "Informe Diario"))
         self.reportGeneral.setText(_translate("InventoryHome", "Informe General"))
         self.btnExit.setText(_translate("InventoryHome", "Salir"))
-    
-    def calcTotal(self, data):
+
+    def calcTotal(self):
+        # self.spinCant.value()
         #Aqui la data se está mezclando con el spinbox. I need that data be keeping in memory with before value.
-        print(self.iUnit.text())
-        if data != "":
-            if int(data) > 0 and int(self.spinCant.value()) > 0: 
-                total = int(data) * int(self.spinCant.value())
+        # print(self.iUnit.text())
+        if self.cant != "" and self.vlr != "":
+            if int(self.cant) > 0 and int(self.vlr) > 0: 
+                total = int(self.cant) * int(self.vlr)
                 self.iTotal.setText(str(total))
+        elif (self.cant != "" a self.vlr != ""):
+            self.iTotal.setText("")
+
+    def fCant(self, data):
+        self.cant = data
+        self.calcTotal()
+    
+    def fVlr(self, data):
+        self.vlr = data
+        self.calcTotal()
     
     def closeWindow(self):
 	    exit()
 
 
 def pandora():
+    ref=[4503025, 4514010, 4514006]
+
+    producto = pd.Series(["Arandela 1/4 ZN", "Arandela M10 ZN", "Arandela M6 ZN"],
+                     index=ref)
+    
+    cantidad = pd.Series([3,2,5],
+                         index=ref)
     datos = {
-	"Ref": [1,2,3],
-	"Product": ["arandela", "tornillo", "tuerca"],
-    "Cant": [3,2,5]
+	#"Ref": [4503025, 4514010, 4514006, 3],
+	"Product": producto,#["arandela", "tornillo", "tuerca"],
+    "Cant": cantidad
     }
 
     datos = pd.DataFrame(datos)
-    # print(datos)
-    datos.to_csv('ProjectInventory/DataBase/data.csv')
-    #datos.to_latex('ProjectInventory/DataBase/data.csv')
+    
+    os.makedirs('ProjectInventory/dataBase/', exist_ok=True)
+    datos.to_csv('ProjectInventory/DataBase/data.csv', index_label="Ref")
+    #datos.to_latex('ProjectInventory/DataBase/data.tex')
+
+def read_data():
+     if os.path.isfile('ProjectInventory/DataBase/data.csv'):
+        datos = pd.read_csv('ProjectInventory/DataBase/data.csv', index_col="Ref")
+        print(datos)
