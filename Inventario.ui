@@ -24,7 +24,9 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+
    <widget class="QLabel" name="tittleDi">
+
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -75,6 +77,7 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnNext">
+
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -134,7 +137,7 @@ font: 14pt &quot;Arial&quot;;
     <column/>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar2"/>
  </widget>
  <resources/>
  <connections/>

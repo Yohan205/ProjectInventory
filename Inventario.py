@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_ReportDaily(object):
     def setupUi(self, ReportDaily):
         ReportDaily.setObjectName("ReportDaily")
@@ -89,3 +88,4 @@ if __name__ == "__main__":
     ui.setupUi(ReportDaily)
     ReportDaily.show()
     sys.exit(app.exec_())
+
