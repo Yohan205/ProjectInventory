@@ -20,7 +20,7 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="tittle">
+   <widget class="QLabel" name="tittle2">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -47,7 +47,7 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <string>INFORME DEL DIA</string>
     </property>
    </widget>
-   <widget class="QLabel" name="eProduct">
+   <widget class="QLabel" name="eProduct2">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -74,7 +74,7 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <string>Producto</string>
     </property>
    </widget>
-   <widget class="QLabel" name="eCant">
+   <widget class="QLabel" name="eCant2">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -101,7 +101,7 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <string>Cant.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="eRef">
+   <widget class="QLabel" name="eRef2">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -128,7 +128,7 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <string>Referencia</string>
     </property>
    </widget>
-   <widget class="QLabel" name="eTotal">
+   <widget class="QLabel" name="eTotal2">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -155,7 +155,7 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <string>Total</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="addSell">
+   <widget class="QPushButton" name="addSell2">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -177,7 +177,7 @@ font: 87 13pt &quot;Arial&quot;;</string>
      <string>Agregar Venta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="reportDaily">
+   <widget class="QPushButton" name="reportDaily2">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -222,7 +222,7 @@ font: 87 13pt &quot;Arial&quot;;</string>
     </property>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar2"/>
  </widget>
  <resources/>
  <connections/>
