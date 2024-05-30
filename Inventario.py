@@ -10,143 +10,82 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
-class ReportDaily(QtWidgets.QDialog):
-    def __init__(self, parent=None, main_window=None):
-        super().__init__(parent)
-        self.main_window = main_window
-        self.MainWindow = self
-        # app = QtWidgets.QApplication(sys.argv)
-        # MainWindow = QtWidgets.QMainWindow()
-        self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.resize(659, 463)
-        self.MainWindow.setAutoFillBackground(False)
-        self.MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));")
-        self.centralwidget = QtWidgets.QWidget(self.MainWindow)
-        self.centralwidget.setObjectName("centralwidget") 
-        self.tittle2 = QtWidgets.QLabel(self.centralwidget)
-        self.tittle2.setGeometry(QtCore.QRect(210, 20, 201, 31))
+class Ui_ReportDaily(object):
+    def setupUi(self, ReportDaily):
+        ReportDaily.setObjectName("ReportDaily")
+        ReportDaily.resize(659, 463)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("ICONOI.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        ReportDaily.setWindowIcon(icon)
+        ReportDaily.setAutoFillBackground(False)
+        ReportDaily.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));")
+        self.centralwidget = QtWidgets.QWidget(ReportDaily)
+        self.centralwidget.setObjectName("centralwidget")
+        self.tittleDi = QtWidgets.QLabel(self.centralwidget)
+        self.tittleDi.setGeometry(QtCore.QRect(80, 30, 491, 31))
         font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
+        font.setFamily("Arial Black")
+        font.setPointSize(18)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
-        self.tittle2.setFont(font)
-        self.tittle2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+        self.tittleDi.setFont(font)
+        self.tittleDi.setStyleSheet("background-color: rgb(255, 255, 255, 0);\n"
 "color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.tittle2.setObjectName("tittle2")
-        self.eProduct2 = QtWidgets.QLabel(self.centralwidget)
-        self.eProduct2.setGeometry(QtCore.QRect(20, 70, 91, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eProduct2.setFont(font)
-        self.eProduct2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eProduct2.setObjectName("eProduct2")
-        self.eCant2 = QtWidgets.QLabel(self.centralwidget)
-        self.eCant2.setGeometry(QtCore.QRect(120, 70, 51, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eCant2.setFont(font)
-        self.eCant2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eCant2.setObjectName("eCant2")
-        self.eRef2 = QtWidgets.QLabel(self.centralwidget)
-        self.eRef2.setGeometry(QtCore.QRect(180, 70, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eRef2.setFont(font)
-        self.eRef2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eRef2.setObjectName("eRef2")
-        self.eTotal2 = QtWidgets.QLabel(self.centralwidget)
-        self.eTotal2.setGeometry(QtCore.QRect(300, 70, 51, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eTotal2.setFont(font)
-        self.eTotal2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eTotal2.setObjectName("eTotal2")
-        self.addSell2 = QtWidgets.QPushButton(self.centralwidget)
-        self.addSell2.setGeometry(QtCore.QRect(440, 150, 151, 41))
-        self.addSell2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.addSell2.setStyleSheet("background-color: rgb(94, 23, 235);\n"
+"font: 87 18pt \"Arial Black\";\n"
+"")
+        self.tittleDi.setObjectName("tittleDi")
+        self.btnBackDi = QtWidgets.QPushButton(self.centralwidget)
+        self.btnBackDi.setGeometry(QtCore.QRect(20, 390, 91, 41))
+        self.btnBackDi.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnBackDi.setStyleSheet("background-color: rgb(50, 185, 41);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.addSell2.setObjectName("addSell2")
-        self.reportDaily2 = QtWidgets.QPushButton(self.centralwidget)
-        self.reportDaily2.setGeometry(QtCore.QRect(440, 80, 141, 41))
-        self.reportDaily2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.reportDaily2.setStyleSheet("background-color: rgb(0, 151, 178);\n"
+"font: 87 14pt \"Arial Black\";")
+        self.btnBackDi.setObjectName("btnBackDi")
+        self.btnNext = QtWidgets.QPushButton(self.centralwidget)
+        self.btnNext.setGeometry(QtCore.QRect(510, 390, 131, 41))
+        self.btnNext.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnNext.setStyleSheet("background-color: rgb(249, 167, 25);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius:15px;\n"
-"font: 87 12pt \"Arial\";")
-        self.reportDaily2.setObjectName("reportDaily2")
-        self.btnBack = QtWidgets.QPushButton(self.centralwidget)
-        self.btnBack.setGeometry(QtCore.QRect(10, 10, 61, 41))
-        self.btnBack.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnBack.setStyleSheet("background-color: rgb(126, 217, 87);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.btnBack.setObjectName("btnBack")
-        self.btnBack.clicked.connect(self.return_to_main)
-        """ MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar2 = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar2.setObjectName("statusbar2")
-        MainWindow.setStatusBar(self.statusbar2) """
+"font: 87 14pt \"Arial Black\";")
+        self.btnNext.setObjectName("btnNext")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(50, 120, 531, 231))
+        self.tableWidget.setStyleSheet("background-color: rgb(101, 200, 156);\n"
+"\n"
+"\n"
+"background-color: rgb(215, 233, 255);\n"
+"font: 14pt \"Arial\";\n"
+"\n"
+"")
+        self.tableWidget.setRowCount(5)
+        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        ReportDaily.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(ReportDaily)
+        self.statusbar.setObjectName("statusbar")
+        ReportDaily.setStatusBar(self.statusbar)
 
-        self.retranslateUi2()
-        # QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(ReportDaily)
+        QtCore.QMetaObject.connectSlotsByName(ReportDaily)
 
-        """ MainWindow.show()
-        sys.exit(app.exec_()) """
-
-    def return_to_main(self):
-        self.hide()
-        if self.main_window:
-            self.main_window.show()
-
-    def retranslateUi2(self):
+    def retranslateUi(self, ReportDaily):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.tittle2.setText(_translate("MainWindow", "INFORME DEL DIA"))
-        self.eProduct2.setText(_translate("MainWindow", "Producto"))
-        self.eCant2.setText(_translate("MainWindow", "Cant."))
-        self.eRef2.setText(_translate("MainWindow", "Referencia"))
-        self.eTotal2.setText(_translate("MainWindow", "Total"))
-        self.addSell2.setText(_translate("MainWindow", "Agregar Venta"))
-        self.reportDaily2.setText(_translate("MainWindow", "Informe Diario"))
-        self.btnBack.setText(_translate("MainWindow", "Atrás"))
+        ReportDaily.setWindowTitle(_translate("ReportDaily", "Informe Diario de Ventas"))
+        self.tittleDi.setText(_translate("ReportDaily", "INFORME DIARIO DE VENTAS"))
+        self.btnBackDi.setText(_translate("ReportDaily", "Atrás"))
+        self.btnNext.setText(_translate("ReportDaily", "Siguiente"))
 
 
-""" if __name__ == "__main__":
+if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow) """
-    
+    ReportDaily = QtWidgets.QMainWindow()
+    ui = Ui_ReportDaily()
+    ui.setupUi(ReportDaily)
+    ReportDaily.show()
+    sys.exit(app.exec_())
+

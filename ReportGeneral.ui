@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ReportDaily</class>
- <widget class="QMainWindow" name="ReportDaily">
+ <class>ReportGeneral</class>
+ <widget class="QMainWindow" name="ReportGeneral">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Informe Diario de Ventas</string>
+   <string>Informe General de Ventas</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -24,14 +24,12 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-
-   <widget class="QLabel" name="tittleDi">
-
+   <widget class="QLabel" name="tittleGe">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>60</x>
       <y>30</y>
-      <width>491</width>
+      <width>531</width>
       <height>31</height>
      </rect>
     </property>
@@ -51,10 +49,10 @@ font: 87 18pt &quot;Arial Black&quot;;
 </string>
     </property>
     <property name="text">
-     <string>INFORME DIARIO DE VENTAS</string>
+     <string>INFORME GENERAL DE VENTAS</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnBackDi">
+   <widget class="QPushButton" name="btnBackGe">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -76,13 +74,12 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <string>Atrás</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnNext">
-
+   <widget class="QPushButton" name="btnNextGe">
     <property name="geometry">
      <rect>
       <x>510</x>
       <y>390</y>
-      <width>131</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -90,7 +87,8 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 167, 25);
+     <string notr="true">background-color: rgb(0, 151, 178);
+background-color: rgb(249, 167, 25);
 color: rgb(255, 255, 255);
 border-radius:15px;
 font: 87 14pt &quot;Arial Black&quot;;</string>
@@ -99,11 +97,11 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <string>Siguiente</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tableWidgetGe">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>120</y>
+      <x>60</x>
+      <y>110</y>
       <width>531</width>
       <height>231</height>
      </rect>
@@ -137,7 +135,7 @@ font: 14pt &quot;Arial&quot;;
     <column/>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar2"/>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
