@@ -36,11 +36,14 @@ class ReportGeneral(QtWidgets.QDialog):
 
 class Inventory():
     def __init__(self):
+        self.datos = []
         self.ref = []
         self.products = []
+        self.precios = []
+        self.stock = []
         self.cant = ""
-        self.vlr = 0
-        self.product = ""
+        self.vlrUnit = 0
+        self.productRef = ""
 
         app = QtWidgets.QApplication(sys.argv)
         self.InventoryHome = QtWidgets.QMainWindow()
@@ -185,6 +188,7 @@ class Inventory():
 "border-radius:15px;\n"
 "font: 87 13pt \"Arial\";")
         self.addSell.setObjectName("addSell")
+        self.addSell.clicked.connect(self.fAddSell)
         self.reportDaily = QtWidgets.QPushButton(self.centralwidget)
         self.reportDaily.setGeometry(QtCore.QRect(420, 140, 151, 41))
         self.reportDaily.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -260,11 +264,11 @@ class Inventory():
     def calcTotal(self):
         # self.spinCant.value()
         # print(self.iUnit.text())
-        if self.cant != "" and self.vlr != "":
-            if int(self.cant) > 0 and int(self.vlr) > 0: 
-                total = int(self.cant) * int(self.vlr)
+        if self.cant != "" and self.vlrUnit != "":
+            if int(self.cant) > 0 and int(self.vlrUnit) > 0: 
+                total = int(self.cant) * int(self.vlrUnit)
                 self.iTotal.setText(str(total))
-        elif (self.cant == "" or self.vlr == ""):
+        elif (self.cant == "" or self.vlrUnit == ""):
             self.iTotal.setText("")
 
     def fCant(self, data):
@@ -272,41 +276,70 @@ class Inventory():
         self.calcTotal()
     
     def fVlr(self, data):
-        self.vlr = data
+        self.vlrUnit = data
         self.calcTotal()
 
     def cargar(self):
         if os.path.isfile('DataBase/data.csv'):
-            datos = pd.read_csv('DataBase/data.csv', index_col="Ref")
-            self.ref = datos.index.to_list()
-            self.products = pd.Series(datos.loc[:,'Product'].to_list(),index=self.ref)
+            self.datos = pd.read_csv('DataBase/data.csv', index_col="Ref")
+            # print(self.datos)
+            self.ref = self.datos.index.to_list()
+            self.products = pd.Series(self.datos.loc[:,'Product'].to_list(),index=self.ref)
+            self.precios = pd.Series(self.datos.loc[:,'Valor'].to_list(), index=self.ref)
+            self.stock = pd.Series(self.datos.loc[:,'Cant'].to_list(), index=self.ref)
+            # print(self.precios)
 
             self.iRef.addItems(self.ref)
     
     def updateProduct(self, data):
         # print(self.ref[data])
         # print(self.products.loc[self.ref[data]])
-        self.iProduct.setText(self.products.loc[self.ref[data]])
-        
-            
+        self.productRef = self.ref[data]
+        self.iProduct.setText(self.products.loc[self.productRef])
+        # print(self.products.loc[self.productRef])
+        # print(self.precios.loc[self.productRef])
+        self.iUnit.setText(str(self.precios.loc[self.productRef]))
 
-    """ def guardar(self):
-        producto = pd.Series(["Arandela 1/4 ZN", "Arandela M10 ZN", "Arandela M6 ZN"],
-                     index=ref)
+
+    def fAddSell(self):
+        # print(self.products)
+        # print(self.productRef)
+        # print(self.cant)
     
-        cantidad = pd.Series([3,2,5],
-                            index=ref)
+        # cantidad = pd.Series([3,2,5],index=ref)
+        # self.datos = pd.DataFrame({"Product": producto, "Cant": cantidad})
 
-        datos = pd.DataFrame({"Product": producto, "Cant": cantidad})
+        if self.cant > self.stock.loc[self.productRef]:
+            print("Fuera de stock")
+        else:
+            self.datos.at[self.productRef, 'Ventas'] = self.cant
+            print(self.datos)
         
-        os.makedirs('DataBase/', exist_ok=True)
-        datos.to_csv('DataBase/data.csv', index_label="Ref") """
+            os.makedirs('DataBase/', exist_ok=True)
+            self.datos.to_csv('DataBase/data.csv', index_label="Ref")
+            print("Venta registrada correctamente")
+        # print(self.stock)
+
+    def fAddInv(self):
+        # print(self.products)
+        # print(self.productRef)
+        # print(self.cant)
+        
+        if self.cant > 0:
+            self.datos.at[self.productRef, 'Cant'] = self.cant
+            print(self.datos)
+        
+            os.makedirs('DataBase/', exist_ok=True)
+            self.datos.to_csv('DataBase/data.csv', index_label="Ref")
+            print("Agregado al inventario correctamente")
+        else:
+            print("Cantidad no permitida")
     
     def closeWindow(self):
 	    exit()
 
 
-def pandora():
+def pruebas():
     ref=[4503025, 4514010, 4514006]
 
     producto = pd.Series(["Arandela 1/4 ZN", "Arandela M10 ZN", "Arandela M6 ZN"], index=ref)

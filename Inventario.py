@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class reportDaily(QtWidgets.QDialog):
+class ReportDaily(QtWidgets.QDialog):
     def __init__(self, parent=None, main_window=None):
         super().__init__(parent)
         self.main_window = main_window

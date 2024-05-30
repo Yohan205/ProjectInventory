@@ -1,6 +1,6 @@
-from Header import Inventory, pandora, read_data
+from Header import Inventory, pruebas, read_data
 
 Inventory()
 
 # read_data()
-# pandora()
+# pruebas()
