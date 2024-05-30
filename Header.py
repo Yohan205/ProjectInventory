@@ -194,18 +194,5 @@ class Inventory():
     def closeWindow(self):
         exit()
 
-    """ def openWindow(self):
-        self.reportDaily = QtWidgets.QMainWindow
-        self.ui = SEGUNDAVENTANA
-        self.ui.setupUi(self.reportDaily)
-        self.reportDaily.show() """
 
 
-""" if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    InventoryHome = QtWidgets.QMainWindow()
-    ui = Ui_InventoryHome()
-    ui.setupUi(InventoryHome)
-    InventoryHome.show()
-    sys.exit(app.exec_()) """

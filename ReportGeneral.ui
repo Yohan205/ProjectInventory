@@ -158,8 +158,8 @@ font: 87 14pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="addSell">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>200</y>
+      <x>440</x>
+      <y>150</y>
       <width>151</width>
       <height>41</height>
      </rect>
@@ -180,8 +180,8 @@ font: 87 13pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="reportDaily">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>110</y>
+      <x>440</x>
+      <y>80</y>
       <width>141</width>
       <height>41</height>
      </rect>

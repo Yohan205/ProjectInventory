@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>659</width>
     <height>450</height>
    </rect>
   </property>
@@ -23,35 +23,37 @@
    <widget class="QLabel" name="tittle">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>161</width>
-      <height>31</height>
+      <x>140</x>
+      <y>20</y>
+      <width>381</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
+      <family>Arial Black</family>
+      <pointsize>18</pointsize>
       <weight>10</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
+color: rgb(40, 91, 145);
+font: 87 18pt &quot;Arial Black&quot;;
+
+</string>
     </property>
     <property name="text">
-     <string>Registro de ventas</string>
+     <string>REGISTRO DE VENTAS</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="iProduct">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>60</y>
+      <x>160</x>
+      <y>110</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -69,8 +71,8 @@ border-radius: 12px;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>60</y>
-      <width>91</width>
+      <y>110</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -84,8 +86,8 @@ border-radius: 12px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
+color: rgb(0, 0, 0);
 font: 87 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
@@ -96,8 +98,8 @@ font: 87 14pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>100</y>
-      <width>91</width>
+      <y>190</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -123,8 +125,8 @@ font: 87 14pt &quot;Arial&quot;;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
-      <width>51</width>
+      <y>150</y>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -143,33 +145,15 @@ color: rgb(255, 255, 255);
 font: 87 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Ref.:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="iRef">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>140</y>
-      <width>181</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(225, 225, 225);
-font: 12pt &quot;Arial&quot;;
-border-radius: 12px;</string>
-    </property>
-    <property name="text">
-     <string/>
+     <string>Referencia:</string>
     </property>
    </widget>
    <widget class="QLabel" name="eUnit">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>180</y>
-      <width>71</width>
+      <y>230</y>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -188,15 +172,15 @@ color: rgb(255, 255, 255);
 font: 87 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
-     <string>Vr. Unit.:</string>
+     <string>Vr. Unitario:</string>
     </property>
    </widget>
    <widget class="QLabel" name="eTotal">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>220</y>
-      <width>71</width>
+      <y>270</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -221,8 +205,8 @@ font: 87 14pt &quot;Arial&quot;;</string>
    <widget class="QLineEdit" name="iUnit">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>180</y>
+      <x>160</x>
+      <y>230</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -239,8 +223,8 @@ border-radius: 12px;</string>
    <widget class="QLineEdit" name="iTotal">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>220</y>
+      <x>160</x>
+      <y>270</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -260,9 +244,9 @@ border-radius: 12px;</string>
    <widget class="QPushButton" name="addSell">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>280</y>
-      <width>131</width>
+      <x>170</x>
+      <y>330</y>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -282,9 +266,9 @@ font: 87 13pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="reportDaily">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>90</y>
-      <width>121</width>
+      <x>420</x>
+      <y>140</y>
+      <width>151</width>
       <height>41</height>
      </rect>
     </property>
@@ -304,9 +288,9 @@ font: 87 13pt &quot;Arial&quot;;</string>
    <widget class="QPushButton" name="reportGeneral">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>180</y>
-      <width>141</width>
+      <x>420</x>
+      <y>200</y>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
@@ -348,8 +332,23 @@ font: 87 13pt &quot;Arial&quot;;</string>
    <widget class="QSpinBox" name="spinCant">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>100</y>
+      <x>160</x>
+      <y>190</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(225, 225, 225);
+font: 12pt &quot;Arial&quot;;
+border-radius: 12px;</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="iRef">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>150</y>
       <width>181</width>
       <height>31</height>
      </rect>
