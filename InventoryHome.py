@@ -13,158 +13,23 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_InventoryHome(object):
     def setupUi(self, InventoryHome):
-        InventoryHome.setObjectName("InventoryHome")
-        InventoryHome.resize(659, 450)
-        InventoryHome.setAutoFillBackground(False)
-        InventoryHome.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));")
-        self.centralwidget = QtWidgets.QWidget(InventoryHome)
-        self.centralwidget.setObjectName("centralwidget")
-        self.tittle = QtWidgets.QLabel(self.centralwidget)
-        self.tittle.setGeometry(QtCore.QRect(140, 20, 381, 41))
-        font = QtGui.QFont()
-        font.setFamily("Arial Black")
-        font.setPointSize(18)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.tittle.setFont(font)
-        self.tittle.setStyleSheet("background-color: rgb(255, 255, 255, 0);\n"
-"color: rgb(40, 91, 145);\n"
-"font: 87 18pt \"Arial Black\";\n"
-"\n"
-"")
-        self.tittle.setObjectName("tittle")
-        self.iProduct = QtWidgets.QLineEdit(self.centralwidget)
-        self.iProduct.setGeometry(QtCore.QRect(160, 110, 181, 31))
-        self.iProduct.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.iProduct.setText("")
-        self.iProduct.setObjectName("iProduct")
-        self.eProduct = QtWidgets.QLabel(self.centralwidget)
-        self.eProduct.setGeometry(QtCore.QRect(30, 110, 101, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eProduct.setFont(font)
-        self.eProduct.setStyleSheet("background-color: rgb(255, 255, 255, 0);\n"
-"color: rgb(0, 0, 0);\n"
-"font: 87 14pt \"Arial\";")
-        self.eProduct.setObjectName("eProduct")
-        self.eCant = QtWidgets.QLabel(self.centralwidget)
-        self.eCant.setGeometry(QtCore.QRect(30, 190, 101, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eCant.setFont(font)
-        self.eCant.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eCant.setObjectName("eCant")
-        self.eRef = QtWidgets.QLabel(self.centralwidget)
-        self.eRef.setGeometry(QtCore.QRect(30, 150, 121, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eRef.setFont(font)
-        self.eRef.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eRef.setObjectName("eRef")
-        self.eUnit = QtWidgets.QLabel(self.centralwidget)
-        self.eUnit.setGeometry(QtCore.QRect(30, 230, 121, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eUnit.setFont(font)
-        self.eUnit.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eUnit.setObjectName("eUnit")
-        self.eTotal = QtWidgets.QLabel(self.centralwidget)
-        self.eTotal.setGeometry(QtCore.QRect(30, 270, 111, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.eTotal.setFont(font)
-        self.eTotal.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 87 14pt \"Arial\";")
-        self.eTotal.setObjectName("eTotal")
-        self.iUnit = QtWidgets.QLineEdit(self.centralwidget)
-        self.iUnit.setGeometry(QtCore.QRect(160, 230, 181, 31))
-        self.iUnit.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.iUnit.setText("")
-        self.iUnit.setObjectName("iUnit")
-        self.iTotal = QtWidgets.QLineEdit(self.centralwidget)
-        self.iTotal.setGeometry(QtCore.QRect(160, 270, 181, 31))
-        self.iTotal.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.iTotal.setText("")
-        self.iTotal.setReadOnly(True)
-        self.iTotal.setObjectName("iTotal")
-        self.addSell = QtWidgets.QPushButton(self.centralwidget)
-        self.addSell.setGeometry(QtCore.QRect(170, 330, 161, 41))
-        self.addSell.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.addSell.setStyleSheet("background-color: rgb(94, 23, 235);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.addSell.setObjectName("addSell")
-        self.reportDaily = QtWidgets.QPushButton(self.centralwidget)
-        self.reportDaily.setGeometry(QtCore.QRect(420, 140, 151, 41))
-        self.reportDaily.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.reportDaily.setStyleSheet("background-color: rgb(0, 151, 178);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.reportDaily.setObjectName("reportDaily")
-        self.reportGeneral = QtWidgets.QPushButton(self.centralwidget)
-        self.reportGeneral.setGeometry(QtCore.QRect(420, 200, 171, 41))
-        self.reportGeneral.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.reportGeneral.setStyleSheet("background-color: rgb(0, 151, 178);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.reportGeneral.setObjectName("reportGeneral")
-        self.btnExit = QtWidgets.QPushButton(self.centralwidget)
-        self.btnExit.setGeometry(QtCore.QRect(520, 370, 61, 41))
-        self.btnExit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnExit.setStyleSheet("background-color: rgb(0, 151, 178);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 13pt \"Arial\";")
-        self.btnExit.setObjectName("btnExit")
-        self.spinCant = QtWidgets.QSpinBox(self.centralwidget)
-        self.spinCant.setGeometry(QtCore.QRect(160, 190, 181, 31))
-        self.spinCant.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.spinCant.setObjectName("spinCant")
-        self.iRef = QtWidgets.QSpinBox(self.centralwidget)
-        self.iRef.setGeometry(QtCore.QRect(160, 150, 181, 31))
-        self.iRef.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.iRef.setObjectName("iRef")
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         InventoryHome.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(InventoryHome)
         self.statusbar.setObjectName("statusbar")
@@ -173,19 +38,7 @@ class Ui_InventoryHome(object):
         self.retranslateUi(InventoryHome)
         QtCore.QMetaObject.connectSlotsByName(InventoryHome)
 
-    def retranslateUi(self, InventoryHome):
-        _translate = QtCore.QCoreApplication.translate
-        InventoryHome.setWindowTitle(_translate("InventoryHome", "Registro de ventas"))
-        self.tittle.setText(_translate("InventoryHome", "REGISTRO DE VENTAS"))
-        self.eProduct.setText(_translate("InventoryHome", "Producto:"))
-        self.eCant.setText(_translate("InventoryHome", "Cantidad:"))
-        self.eRef.setText(_translate("InventoryHome", "Referencia:"))
-        self.eUnit.setText(_translate("InventoryHome", "Vr. Unitario:"))
-        self.eTotal.setText(_translate("InventoryHome", "Vr. Total:"))
-        self.addSell.setText(_translate("InventoryHome", "Agregar Venta"))
-        self.reportDaily.setText(_translate("InventoryHome", "Informe Diario"))
-        self.reportGeneral.setText(_translate("InventoryHome", "Informe General"))
-        self.btnExit.setText(_translate("InventoryHome", "Salir"))
+    
 
 
 if __name__ == "__main__":

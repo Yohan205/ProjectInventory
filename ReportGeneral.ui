@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ReportGeneral</class>
+ <widget class="QMainWindow" name="ReportGeneral">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Informe General de Ventas</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>ICONOI.jpg</normaloff>ICONOI.jpg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -20,147 +24,40 @@
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(4,155,180, 255), stop:1 rgba(125,216,87, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="tittle">
+   <widget class="QLabel" name="tittleGe">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>20</y>
-      <width>201</width>
+      <x>60</x>
+      <y>30</y>
+      <width>531</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
+      <family>Arial Black</family>
+      <pointsize>18</pointsize>
       <weight>10</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
+     <string notr="true">background-color: rgb(255, 255, 255, 0);
 color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
+font: 87 18pt &quot;Arial Black&quot;;
+</string>
     </property>
     <property name="text">
-     <string>INFORME DEL DIA</string>
+     <string>INFORME GENERAL DE VENTAS</string>
     </property>
    </widget>
-   <widget class="QLabel" name="eProduct">
+   <widget class="QPushButton" name="btnBackGe">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>70</y>
+      <y>390</y>
       <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Producto</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="eCant">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>70</y>
-      <width>51</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Cant.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="eRef">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>70</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Referencia</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="eTotal">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>70</y>
-      <width>51</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);
-font: 87 14pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Total</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addSell">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>150</y>
-      <width>151</width>
       <height>41</height>
      </rect>
     </property>
@@ -168,20 +65,20 @@ font: 87 14pt &quot;Arial&quot;;</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(94, 23, 235);
+     <string notr="true">background-color: rgb(50, 185, 41);
 color: rgb(255, 255, 255);
 border-radius:15px;
-font: 87 13pt &quot;Arial&quot;;</string>
+font: 87 14pt &quot;Arial Black&quot;;</string>
     </property>
     <property name="text">
-     <string>Agregar Venta</string>
+     <string>Atrás</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="reportDaily">
+   <widget class="QPushButton" name="btnNextGe">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>80</y>
+      <x>510</x>
+      <y>390</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -191,35 +88,51 @@ font: 87 13pt &quot;Arial&quot;;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(0, 151, 178);
+background-color: rgb(249, 167, 25);
 color: rgb(255, 255, 255);
 border-radius:15px;
-font: 87 12pt &quot;Arial&quot;;</string>
+font: 87 14pt &quot;Arial Black&quot;;</string>
     </property>
     <property name="text">
-     <string>Informe Diario</string>
+     <string>Siguiente</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnBack">
+   <widget class="QTableWidget" name="tableWidgetGe">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>61</width>
-      <height>41</height>
+      <x>60</x>
+      <y>110</y>
+      <width>531</width>
+      <height>231</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(126, 217, 87);
-color: rgb(255, 255, 255);
-border-radius:15px;
-font: 87 13pt &quot;Arial&quot;;</string>
+     <string notr="true">background-color: rgb(101, 200, 156);
+
+
+background-color: rgb(215, 233, 255);
+font: 14pt &quot;Arial&quot;;
+
+</string>
     </property>
-    <property name="text">
-     <string>Atrás</string>
+    <property name="rowCount">
+     <number>5</number>
     </property>
+    <property name="columnCount">
+     <number>4</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column/>
+    <column/>
+    <column/>
+    <column/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
