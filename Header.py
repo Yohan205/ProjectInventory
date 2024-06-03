@@ -1,21 +1,21 @@
 import os
 import sys
-from datetime import date
+from datetime import date, datetime, timedelta
 import pandas as pd
-# import numpy as np
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from alertBox import AlertBox
-from Inventario import Ui_ReportDaily
-# from ReportGeneral import Ui_ReportGeneral
+from communicator import Communicator
+from ReportDaily import Ui_ReportDaily
+from ReportGeneral import Ui_ReportGeneral
 from InventoryRegis import Ui_AddProducts
-
-os.makedirs('ProjectInventory/DataBase', exist_ok=True)
-
 
 
 class Inventory():
     def __init__(self):
+        self.communicator = Communicator()
         self.datos = []
         self.ref = []
         self.products = []
@@ -51,21 +51,6 @@ class Inventory():
 "\n"
 "")
         self.tittle.setObjectName("tittle")
-
-        """ self.eAlerta = QtWidgets.QLabel(self.centralwidget)
-        self.eAlerta.setGeometry(QtCore.QRect(280, 60, 71, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.eAlerta.setFont(font)
-        self.eAlerta.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"font: 12pt \"Arial\";\n"
-"color: rgb(213, 0, 0);\n"
-"border-radius:10px;")
-        self.eAlerta.setObjectName("eAlerta") """
 
         self.iProduct = QtWidgets.QLineEdit(self.centralwidget)
         self.iProduct.setGeometry(QtCore.QRect(170, 110, 181, 31))
@@ -110,6 +95,7 @@ class Inventory():
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
         self.spinCant.setObjectName("spinCant")
+        self.spinCant.setRange(0, 101)
         self.spinCant.valueChanged.connect(self.fCant)
 
         self.eRef = QtWidgets.QLabel(self.centralwidget)
@@ -211,7 +197,7 @@ class Inventory():
 "border-radius:15px;\n"
 "font: 87 14pt \"Arial Black\";")
         self.reportGeneral.setObjectName("reportGeneral")
-        # self.reportGeneral.clicked.connect(self.reportGeneralW)
+        self.reportGeneral.clicked.connect(self.reportGeneralW)
         ############### Add Product Button #############
         self.addProductoVen = QtWidgets.QPushButton(self.centralwidget)
         self.addProductoVen.setGeometry(QtCore.QRect(400, 260, 231, 41))
@@ -247,8 +233,6 @@ class Inventory():
 "font: 87 18pt \"Arial Black\";\n"
 "text-decoration: underline;")
         self.eInformes.setObjectName("eInformes")
-        ###### Update Window with current data save on database 
-        self.cargar()
         
         self.InventoryHome.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(self.InventoryHome)
@@ -260,8 +244,17 @@ class Inventory():
 
         self.alertBoxWindow = None
         self.reportDailyWindow = Ui_ReportDaily(main_window=self.InventoryHome)
-        # self.reportGeneralWindow = AlertBox(main_window=self.InventoryHome)
+        self.reportGeneralWindow = Ui_ReportGeneral(main_window=self.InventoryHome)
         self.inventoryRegisWindow = Ui_AddProducts(main_window=self.InventoryHome)
+
+        # Configurando watchdog
+        self.event_handler = FileChangeHandler(self.cargar)
+        self.observer = Observer()
+        self.observer.schedule(self.event_handler, path='DataBase', recursive=False)
+        self.observer.start()
+
+        # Update Window with current data save on database 
+        self.cargar()
 
         self.InventoryHome.show()
         sys.exit(app.exec_())
@@ -283,17 +276,28 @@ class Inventory():
         self.addProductoVen.setText(_translate("InventoryHome", "Agregar Producto"))
         # self.eAlerta.setText(_translate("InventoryHome", "  Alerta"))
 
+    def closeEvent(self, event):
+        self.observer.stop()
+        self.observer.join()
+        event.accept()
+
     def alertBoxW(self, txt):
+        # print("TXT fAB: " + txt)
         if self.alertBoxWindow is None:
-            self.alertBoxWindow = AlertBox(txt)
+            # If window not exists, la crea y pasa como parametro communicator
+            self.alertBoxWindow = AlertBox(self.communicator)
+        # If already exists, update the text through the communicator with the updateAlertBox
+        self.communicator.updateAlertBox.emit(txt)
         self.alertBoxWindow.show()
 
     def reportDailyW(self):
         self.InventoryHome.hide()
+        self.reportDailyWindow.cargar()
         self.reportDailyWindow.show()
 
     def reportGeneralW(self):
         self.InventoryHome.hide()
+        self.reportGeneralWindow.cargar()
         self.reportGeneralWindow.show()
 
     def inventoryRegisW(self):
@@ -319,6 +323,7 @@ class Inventory():
         self.calcTotal()
 
     def cargar(self):
+        self.iRef.clear()
         if os.path.isfile('DataBase/data.csv'):
             self.datos = pd.read_csv('DataBase/data.csv', index_col="Ref")
             # print(self.datos)
@@ -326,11 +331,15 @@ class Inventory():
             self.products = pd.Series(self.datos.loc[:,'Product'].to_list(),index=self.ref)
             self.precios = pd.Series(self.datos.loc[:,'Valor'].to_list(), index=self.ref)
             self.stock = pd.Series(self.datos.loc[:,'Cant'].to_list(), index=self.ref)
+            self.sales = pd.Series(self.datos.loc[:,'Sales'].to_list(), index=self.ref)
+            self.dateSell = pd.Series(self.datos.loc[:,'Date'].to_list(), index=self.ref)
             # print(self.precios)
 
             self.iRef.addItems(self.ref)
     
     def updateProduct(self, data):
+        
+        # self.datos = pd.read_csv('DataBase/data.csv', index_col="Ref")
         # print(self.ref[data])
         # print(self.products.loc[self.ref[data]])
         self.productRef = self.ref[data]
@@ -341,6 +350,8 @@ class Inventory():
 
 
     def fAddSell(self):
+        # self.cargar()
+        today = date.today()
         # print(self.products)
         # print(self.productRef)
         # print(self.cant)
@@ -348,12 +359,18 @@ class Inventory():
         # cantidad = pd.Series([3,2,5],index=ref)
         # self.datos = pd.DataFrame({"Product": producto, "Cant": cantidad})
         # print(self.stock.loc[self.productRef])
+        date_sell = datetime.strptime(self.dateSell[self.productRef], '%Y-%m-%d').date()
         if self.cant != "" and self.stock.loc[self.productRef] != "":
             if int(self.cant) > int(self.stock.loc[self.productRef]):
                 self.alertBoxW("Fuera de stock")
             else:
                 self.datos.at[self.productRef, 'Cant'] -= self.cant
                 self.datos.at[self.productRef, 'Ventas'] += self.cant
+                if date_sell != today:
+                    self.datos.at[self.productRef, 'Date'] = today
+                    self.datos.at[self.productRef, 'Sales'] = self.cant
+                elif date_sell == today:
+                    self.datos.at[self.productRef, 'Sales'] += self.cant
                 print(self.datos)
             
                 os.makedirs('DataBase/', exist_ok=True)
@@ -366,6 +383,13 @@ class Inventory():
     def closeWindow(self):
 	    exit()
 
+class FileChangeHandler(FileSystemEventHandler):
+    def __init__(self, callback):
+        self.callback = callback
+
+    def on_modified(self, event):
+        if event.src_path.endswith("data.csv"):
+            self.callback()
 
 def pruebas():
     ref=[4503025, 4514010, 4514006]
@@ -373,20 +397,23 @@ def pruebas():
     producto = pd.Series(["Arandela 1/4 ZN", "Arandela M10 ZN", "Arandela M6 ZN"], index=ref)
     
     cantidad = pd.Series([3,2,5], index=ref)
+
+    Date = pd.Series([date.today() - timedelta(days=2), date.today() - timedelta(days=1), date.today()], index=ref)
     datos = {
-	#"Ref": [4503025, 4514010, 4514006, 3],
-	"Product": producto,#["arandela", "tornillo", "tuerca"],
+	"Date": Date,
+	"Product": producto,
     "Cant": cantidad
     }
 
     datos = pd.DataFrame(datos)
+    print(datos)
     
     os.makedirs('DataBase/', exist_ok=True)
-    datos.to_csv('DataBase/data.csv', index_label="Ref")
+    datos.to_csv('DataBase/dataP.csv', index_label="Ref")
     #datos.to_latex('ProjectInventory/DataBase/data.tex')
 
 def read_data():
-     if os.path.isfile('./DataBase/data.csv'):
+     if os.path.isfile('./DataBase/dataP.csv'):
         datos = pd.read_csv('./DataBase/data.csv', index_col="Ref")
         ref=datos.index
         print(ref[2])

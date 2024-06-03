@@ -74,69 +74,97 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <string>Atrás</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnNextGe">
+   <widget class="QListWidget" name="listProd">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>390</y>
-      <width>141</width>
-      <height>41</height>
+      <x>180</x>
+      <y>110</y>
+      <width>181</width>
+      <height>261</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listRef">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>110</y>
+      <width>131</width>
+      <height>261</height>
+     </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 151, 178);
-background-color: rgb(249, 167, 25);
-color: rgb(255, 255, 255);
-border-radius:15px;
-font: 87 14pt &quot;Arial Black&quot;;</string>
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listVlr">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>110</y>
+      <width>81</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listCant">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>110</y>
+      <width>51</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listSales">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>110</y>
+      <width>51</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eTotal">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>400</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>Siguiente</string>
+     <string>Total Ventas:</string>
     </property>
-   </widget>
-   <widget class="QTableWidget" name="tableWidgetGe">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>110</y>
-      <width>531</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(101, 200, 156);
-
-
-background-color: rgb(215, 233, 255);
-font: 14pt &quot;Arial&quot;;
-
-</string>
-    </property>
-    <property name="rowCount">
-     <number>5</number>
-    </property>
-    <property name="columnCount">
-     <number>4</number>
-    </property>
-    <attribute name="horizontalHeaderCascadingSectionResizes">
-     <bool>false</bool>
-    </attribute>
-    <row/>
-    <row/>
-    <row/>
-    <row/>
-    <row/>
-    <column/>
-    <column/>
-    <column/>
-    <column/>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>listRef</tabstop>
+  <tabstop>listProd</tabstop>
+  <tabstop>listVlr</tabstop>
+  <tabstop>listCant</tabstop>
+  <tabstop>listSales</tabstop>
+  <tabstop>btnBackGe</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

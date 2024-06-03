@@ -1,16 +1,18 @@
 import os
-import sys
-from datetime import date
+from datetime import date, timedelta
 import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from alertBox import AlertBox
-
+from communicator import Communicator
+# from Header import Inventory
 
 class Ui_AddProducts(QtWidgets.QDialog):
     def __init__(self, parent=None, main_window=None):
         super().__init__(parent)
         self.main_window = main_window
+        self.communicator = Communicator()
+        AddProducts = self
 
         self.datos = []
         self.ref = []
@@ -20,8 +22,8 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.cant = ""
         self.vlrUnit = 0
         self.productRef = ""
+        self.checkBoxProd = False
 
-        AddProducts = self
         AddProducts.setObjectName("AddProducts")
         AddProducts.resize(659, 450)
         icon = QtGui.QIcon()
@@ -136,16 +138,43 @@ class Ui_AddProducts(QtWidgets.QDialog):
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
         self.spinCant.setObjectName("spinCant")
+        self.spinCant.setRange(0, 101)
         self.spinCant.valueChanged.connect(self.fCant)
 
-        self.iRefInv = QtWidgets.QLineEdit(self.centralwidget)
-        self.iRefInv.setGeometry(QtCore.QRect(270, 200, 181, 31))
-        self.iRefInv.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+        self.iRefInvL = QtWidgets.QLineEdit(self.centralwidget)
+        self.iRefInvL.setGeometry(QtCore.QRect(270, 200, 181, 31))
+        self.iRefInvL.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
-        self.iRefInv.setText("")
-        self.iRefInv.setObjectName("iRefInv")
-        # self.iRefInv.currentIndexChanged.connect(self.updateProduct)
+        self.iRefInvL.setText("")
+        self.iRefInvL.setObjectName("iRefInvL")
+        
+
+        self.iRefInvS = QtWidgets.QComboBox(self.centralwidget)
+        self.iRefInvS.setObjectName("iRefInvS")
+        self.iRefInvS.setGeometry(QtCore.QRect(270, 200, 181, 31))
+        self.iRefInvS.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"font: 12pt \"Arial\";\n"
+"border-radius: 12px;")
+        self.iRefInvS.setVisible(False)  # Inicialmente oculto
+        self.iRefInvS.currentIndexChanged.connect(self.updateProduct)
+
+        self.prodExists = QtWidgets.QCheckBox(self.centralwidget)
+        self.prodExists.setObjectName("prodExists")
+        self.prodExists.setGeometry(QtCore.QRect(120, 130, 131, 21))
+        self.prodExists.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+"color: rgb(255, 255, 255);")
+        self.prodExists.stateChanged.connect(self.toggle_iRef)
+
+        ######## Vr Unit Line Edit #############
+        self.iUnit = QtWidgets.QLineEdit(self.centralwidget)
+        self.iUnit.setGeometry(QtCore.QRect(170, 230, 181, 31))
+        self.iUnit.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"font: 12pt \"Arial\";\n"
+"border-radius: 12px;")
+        self.iUnit.setText("")
+        self.iUnit.setObjectName("iUnit")
+        self.iUnit.textChanged.connect(self.fVlr)
 
         self.cargar()
         # AddProducts.setCentralWidget(self.centralwidget)
@@ -167,7 +196,8 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.addProd.setText(_translate("AddProducts", "Agregar Producto"))
         self.btnBackInv.setText(_translate("AddProducts", "Atrás"))
         self.tittle_2.setText(_translate("AddProducts", "AL INVENTARIO"))
-
+        self.prodExists.setText(_translate("AddProducts", "El producto ya existe?"))
+    
     def fCant(self, data):
         self.cant = data
     
@@ -184,38 +214,67 @@ class Ui_AddProducts(QtWidgets.QDialog):
             self.stock = pd.Series(self.datos.loc[:,'Cant'].to_list(), index=self.ref)
             # print(self.precios)
 
-            # self.iRef.addItems(self.ref)
+            self.iRefInvS.addItems(self.ref)
     
     def updateProduct(self, data):
         # print(self.ref[data])
         # print(self.products.loc[self.ref[data]])
         self.productRef = self.ref[data]
-        self.iProduct.setText(self.products.loc[self.productRef])
-        # print(self.products.loc[self.productRef])
-        # print(self.precios.loc[self.productRef])
-        self.iUnit.setText(str(self.precios.loc[self.productRef]))
+        if self.checkBoxProd :
+            self.iProductInv.setText(self.products.loc[self.productRef])
+            self.iUnit.setText(str(self.precios.loc[self.productRef]))
+
+    def toggle_iRef(self, state):
+        if state == 2:  # Si el checkbox está marcado
+            self.checkBoxProd = True
+            self.iRefInvL.setVisible(False)
+            self.iRefInvS.setVisible(True)
+        else:
+            self.checkBoxProd = False
+            self.iRefInvL.setVisible(True)
+            self.iRefInvS.setVisible(False)
+            self.iProductInv.setText("")
+            self.iUnit.setText("")
 
     def fAddInv(self):
         # print(self.products)
         # print(self.iRefInv.text())
-        self.aviso = ""
+        # aviso = ""
         if self.cant != "" and self.cant > 0:
-            self.datos.loc[self.iRefInv.text()] = [self.iProductInv.text(), 0, self.cant, 0]
+            # print(self.productRef)
+            # print(self.iRefInvL.text())
+            if self.checkBoxProd:
+                sales = pd.Series(self.datos.loc[:,'Ventas'].to_list(), index=self.ref)
+                salesToday = pd.Series(self.datos.loc[:,'Sales'].to_list(), index=self.ref)
+                datePrev = pd.Series(self.datos.loc[:,'Date'].to_list(), index=self.ref)
+
+                self.datos.loc[self.productRef] = [self.iProductInv.text(), self.vlrUnit, int(self.stock[self.productRef]) + int(self.cant), sales[self.productRef], salesToday[self.productRef], datePrev[self.productRef]]
+            else:
+                self.datos.loc[self.iRefInvL.text()] = [self.iProductInv.text(), self.vlrUnit, self.cant, 0, salesToday[self.productRef], date.today()-timedelta(days=7)]
             print(self.datos)
         
             os.makedirs('DataBase/', exist_ok=True)
             self.datos.to_csv('DataBase/data.csv', index_label="Ref")
-            self.aviso = "Agregado al inventario correctamente"
+            aviso = "Agregado al inventario\n correctamente"
+            # print("TXT AddI YES: " + aviso)
+            self.alertBoxW(aviso)
         else:
-            self.aviso = "Cantidad no permitida"
-        self.alertBoxW(self.aviso)
+            aviso = "Cantidad no\npermitida"
+            # print("TXT AddI NOT: " + aviso)
+            self.alertBoxW(aviso)
+        
     
     def alertBoxW(self, txt):
+        # print("TXT fAB: " + txt)
         if self.alertBoxWindow is None:
-            self.alertBoxWindow = AlertBox(txt)
+            # If window not exists, la crea y pasa como parametro communicator
+            self.alertBoxWindow = AlertBox(self.communicator)
+        # If already exists, update the text through the communicator with the updateAlertBox
+        self.communicator.updateAlertBox.emit(txt)
         self.alertBoxWindow.show()
 
     def returnMain(self):
         self.hide()
+        # Inventory.cargar()
         if self.main_window:
             self.main_window.show()

@@ -258,9 +258,33 @@ font: 12pt &quot;Arial&quot;;
 border-radius: 12px;</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="prodExists">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>130</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>El producto ya existe?</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>iProductInv</tabstop>
+  <tabstop>iRefInv</tabstop>
+  <tabstop>spinCant</tabstop>
+  <tabstop>prodExists</tabstop>
+  <tabstop>addProd</tabstop>
+  <tabstop>btnBackInv</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
