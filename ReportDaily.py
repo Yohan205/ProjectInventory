@@ -112,15 +112,22 @@ class Ui_ReportDaily(QtWidgets.QDialog):
                     isToday = True
                     # print("date: ", i)
             if isToday:
-                for e in range(self.products[self.today].count()):
-                    # print("PROD: ",self.products[date.today()].iloc[e])
-                    # print("REF: ",self.ref[date.today()].iloc[e])
-                    # print("CANT: ",self.stock[date.today()].iloc[e])
+                # print(type(self.products[self.today]))
+                # print(type(self.products[self.today]) == str)
+                if type(self.products[self.today]) != str:
+                    for e in range(self.products[self.today].count()):
+                        # print("PROD: ",self.products[date.today()].iloc[e])
+                        # print("REF: ",self.ref[date.today()].iloc[e])
+                        # print("CANT: ",self.stock[date.today()].iloc[e])
 
-                    self.listRef.addItem(str(self.ref[self.today].iloc[e]))
-                    self.listProd.addItem(str(self.products[self.today].iloc[e]))
-                    self.listCant.addItem(str(self.sales[self.today].iloc[e]))
-            self.eTotal.setText("Total ventas: "+str(self.sales[self.today].sum()))
+                        self.listRef.addItem(str(self.ref[self.today].iloc[e]))
+                        self.listProd.addItem(str(self.products[self.today].iloc[e]))
+                        self.listCant.addItem(str(self.sales[self.today].iloc[e]))
+                else:
+                    self.listRef.addItem(str(self.ref[self.today]))
+                    self.listProd.addItem(str(self.products[self.today]))
+                    self.listCant.addItem(str(self.sales[self.today]))
+                self.eTotal.setText("Total ventas: "+str(self.sales[self.today].sum()))
         
     def returnMain(self):
         self.close()
