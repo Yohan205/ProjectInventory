@@ -399,17 +399,18 @@ def pruebas():
     cantidad = pd.Series([3,2,5], index=ref)
 
     Date = pd.Series([date.today() - timedelta(days=2), date.today() - timedelta(days=1), date.today()], index=ref)
+
     datos = {
-	"Date": Date,
 	"Product": producto,
-    "Cant": cantidad
+    "Cant": cantidad,
+    "Date": Date
     }
 
-    datos = pd.DataFrame(datos)
-    print(datos)
+    datos1 = pd.DataFrame(datos)
+    print(datos1)
     
     os.makedirs('DataBase/', exist_ok=True)
-    datos.to_csv('DataBase/dataP.csv', index_label="Ref")
+    datos1.to_csv('DataBase/dataP.csv', index_label="Ref")
     #datos.to_latex('ProjectInventory/DataBase/data.tex')
 
 def read_data():
@@ -417,12 +418,14 @@ def read_data():
         datos = pd.read_csv('./DataBase/data.csv', index_col="Ref")
         ref=datos.index
         print(ref[2])
+
         for a, b in datos.items():
             print("AA:", a)
             print(b.iloc[0])
-        print(datos.loc[:,'Product'])
         fecha = date.today()
         print("Fecha:", fecha)
+
+        print(datos.loc[:,'Product'])
         dNumpy = datos.loc[:,'Product'].to_list()
         print(dNumpy)
 
