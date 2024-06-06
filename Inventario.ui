@@ -27,9 +27,9 @@
    <widget class="QLabel" name="tittleDi">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>80</x>
       <y>30</y>
-      <width>401</width>
+      <width>491</width>
       <height>31</height>
      </rect>
     </property>
@@ -55,8 +55,8 @@ font: 87 18pt &quot;Arial Black&quot;;
    <widget class="QPushButton" name="btnBackDi">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>390</y>
+      <x>10</x>
+      <y>410</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -74,81 +74,123 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
      <string>Atrás</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnNext">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>390</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(249, 167, 25);
-color: rgb(255, 255, 255);
-border-radius:15px;
-font: 87 14pt &quot;Arial Black&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Siguiente</string>
-    </property>
-   </widget>
    <widget class="QListWidget" name="listRef">
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>110</y>
+      <y>130</y>
       <width>131</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listProd">
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>110</y>
+      <y>130</y>
       <width>181</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listCant">
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>110</y>
-      <width>61</width>
+      <y>130</y>
+      <width>91</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLabel" name="eTotal">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>390</y>
-      <width>161</width>
+      <x>330</x>
+      <y>410</y>
+      <width>191</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
     </property>
     <property name="text">
-     <string>Total Ventas:</string>
+     <string> Total Ventas:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iRefGe">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>100</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Referencia</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iVenDi">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>100</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Ventas</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iProdDi">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>100</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Productos</string>
     </property>
    </widget>
   </widget>
@@ -156,7 +198,6 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
  <tabstops>
   <tabstop>listRef</tabstop>
   <tabstop>btnBackDi</tabstop>
-  <tabstop>btnNext</tabstop>
  </tabstops>
  <resources/>
  <connections/>

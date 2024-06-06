@@ -56,8 +56,8 @@ font: 87 18pt &quot;Arial Black&quot;;
    <widget class="QLineEdit" name="iProductInv">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>160</y>
+      <x>300</x>
+      <y>170</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -74,8 +74,8 @@ border-radius: 12px;</string>
    <widget class="QLabel" name="eProductInv">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>160</y>
+      <x>150</x>
+      <y>170</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -102,8 +102,8 @@ font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
    <widget class="QLabel" name="eCantInv">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>240</y>
+      <x>150</x>
+      <y>250</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -130,8 +130,8 @@ font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
    <widget class="QLabel" name="eRefInv">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>200</y>
+      <x>150</x>
+      <y>210</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -158,8 +158,8 @@ font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
    <widget class="QPushButton" name="addProd">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>300</y>
+      <x>270</x>
+      <y>340</y>
       <width>231</width>
       <height>41</height>
      </rect>
@@ -180,8 +180,8 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
    <widget class="QPushButton" name="btnBackInv">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>350</y>
+      <x>350</x>
+      <y>390</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -202,8 +202,8 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
    <widget class="QSpinBox" name="spinCant">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>240</y>
+      <x>300</x>
+      <y>250</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -218,7 +218,7 @@ border-radius: 12px;</string>
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>70</y>
+      <y>60</y>
       <width>281</width>
       <height>41</height>
      </rect>
@@ -246,8 +246,8 @@ font: 87 18pt &quot;Arial Black&quot;;
    <widget class="QComboBox" name="iRefInv">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>200</y>
+      <x>300</x>
+      <y>210</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -261,18 +261,65 @@ border-radius: 12px;</string>
    <widget class="QCheckBox" name="prodExists">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>150</x>
       <y>130</y>
-      <width>131</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+font: 14pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
     </property>
     <property name="text">
      <string>El producto ya existe?</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="iUnit">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>290</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(225, 225, 225);
+font: 12pt &quot;Arial&quot;;
+border-radius: 12px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="eCantInv_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>290</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Tw Cen MT Condensed Extra Bold</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);
+font: 63 14pt &quot;Bahnschrift SemiBold&quot;;
+font: 18pt &quot;Tw Cen MT Condensed Extra Bold&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Precio:</string>
     </property>
    </widget>
   </widget>

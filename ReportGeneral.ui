@@ -27,7 +27,7 @@
    <widget class="QLabel" name="tittleGe">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>30</y>
       <width>531</width>
       <height>31</height>
@@ -55,8 +55,8 @@ font: 87 18pt &quot;Arial Black&quot;;
    <widget class="QPushButton" name="btnBackGe">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>390</y>
+      <x>10</x>
+      <y>400</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -77,82 +77,186 @@ font: 87 14pt &quot;Arial Black&quot;;</string>
    <widget class="QListWidget" name="listProd">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>110</y>
+      <x>140</x>
+      <y>120</y>
       <width>181</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listRef">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>110</y>
+      <x>10</x>
+      <y>120</y>
       <width>131</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listVlr">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>110</y>
-      <width>81</width>
+      <x>320</x>
+      <y>120</y>
+      <width>101</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listCant">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>110</y>
-      <width>51</width>
+      <x>420</x>
+      <y>120</y>
+      <width>141</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));</string>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QListWidget" name="listSales">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>110</y>
-      <width>51</width>
+      <x>560</x>
+      <y>120</y>
+      <width>91</width>
       <height>261</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLabel" name="eTotal">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>460</x>
       <y>400</y>
-      <width>161</width>
+      <width>191</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
     </property>
     <property name="text">
-     <string>Total Ventas:</string>
+     <string> Total Ventas:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iRefGe">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Referencia</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iProdGe">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>90</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Productos</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iPrecGe">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>90</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Precio </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iExiscGe">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>90</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Existencias</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="iVenGe">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>90</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);
+font: 87 12pt &quot;Arial Black&quot;;
+color: rgb(255, 255, 255);
+border-radius:8px;
+</string>
+    </property>
+    <property name="text">
+     <string> Ventas</string>
     </property>
    </widget>
   </widget>
