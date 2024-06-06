@@ -64,14 +64,14 @@ class Ui_AddProducts(QtWidgets.QDialog):
 "")
         self.tittle_2.setObjectName("tittle_2")
         self.iProductInv = QtWidgets.QLineEdit(self.centralwidget)
-        self.iProductInv.setGeometry(QtCore.QRect(270, 160, 181, 31))
+        self.iProductInv.setGeometry(QtCore.QRect(300, 170, 181, 31))
         self.iProductInv.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
         self.iProductInv.setText("")
         self.iProductInv.setObjectName("iProductInv")
         self.eProductInv = QtWidgets.QLabel(self.centralwidget)
-        self.eProductInv.setGeometry(QtCore.QRect(120, 160, 121, 31))
+        self.eProductInv.setGeometry(QtCore.QRect(150, 170, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Tw Cen MT Condensed Extra Bold")
         font.setPointSize(18)
@@ -85,7 +85,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
 "font: 18pt \"Tw Cen MT Condensed Extra Bold\";")
         self.eProductInv.setObjectName("eProductInv")
         self.eCantInv = QtWidgets.QLabel(self.centralwidget)
-        self.eCantInv.setGeometry(QtCore.QRect(120, 240, 121, 31))
+        self.eCantInv.setGeometry(QtCore.QRect(150, 250, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Tw Cen MT Condensed Extra Bold")
         font.setPointSize(18)
@@ -99,7 +99,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
 "font: 18pt \"Tw Cen MT Condensed Extra Bold\";")
         self.eCantInv.setObjectName("eCantInv")
         self.eRefInv = QtWidgets.QLabel(self.centralwidget)
-        self.eRefInv.setGeometry(QtCore.QRect(120, 200, 131, 31))
+        self.eRefInv.setGeometry(QtCore.QRect(150, 210, 131, 31))
         font = QtGui.QFont()
         font.setFamily("Tw Cen MT Condensed Extra Bold")
         font.setPointSize(18)
@@ -113,7 +113,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
 "font: 18pt \"Tw Cen MT Condensed Extra Bold\";")
         self.eRefInv.setObjectName("eRefInv")
         self.addProd = QtWidgets.QPushButton(self.centralwidget)
-        self.addProd.setGeometry(QtCore.QRect(240, 300, 231, 41))
+        self.addProd.setGeometry(QtCore.QRect(270, 340, 231, 41))
         self.addProd.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.addProd.setStyleSheet("background-color: rgb(220, 110, 0);\n"
 "color: rgb(255, 255, 255);\n"
@@ -123,7 +123,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.addProd.clicked.connect(self.fAddInv)
 
         self.btnBackInv = QtWidgets.QPushButton(self.centralwidget)
-        self.btnBackInv.setGeometry(QtCore.QRect(310, 350, 91, 41))
+        self.btnBackInv.setGeometry(QtCore.QRect(350, 390, 91, 41))
         self.btnBackInv.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnBackInv.setStyleSheet("background-color: rgb(85, 0, 0);\n"
 "color: rgb(255, 255, 255);\n"
@@ -133,7 +133,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.btnBackInv.clicked.connect(self.returnMain)
 
         self.spinCant = QtWidgets.QSpinBox(self.centralwidget)
-        self.spinCant.setGeometry(QtCore.QRect(270, 240, 181, 31))
+        self.spinCant.setGeometry(QtCore.QRect(300, 250, 181, 31))
         self.spinCant.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
@@ -141,34 +141,48 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.spinCant.setRange(0, 101)
         self.spinCant.valueChanged.connect(self.fCant)
 
+        self.tittle_2 = QtWidgets.QLabel(self.centralwidget)
+        self.tittle_2.setGeometry(QtCore.QRect(210, 60, 281, 41))
+        font = QtGui.QFont()
+        font.setFamily("Arial Black")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.tittle_2.setFont(font)
+        self.tittle_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 87 18pt \"Arial Black\";\n"
+"\n"
+"")
+        self.tittle_2.setObjectName("tittle_2")
+
+        self.iRefInvS = QtWidgets.QComboBox(self.centralwidget)
+        self.iRefInvS.setGeometry(QtCore.QRect(300, 210, 181, 31))
+        self.iRefInvS.setStyleSheet("background-color: rgb(225, 225, 225);\n"
+"font: 12pt \"Arial\";\n"
+"border-radius: 12px;")
+        self.iRefInvS.setObjectName("iRefInv")
+
         self.iRefInvL = QtWidgets.QLineEdit(self.centralwidget)
-        self.iRefInvL.setGeometry(QtCore.QRect(270, 200, 181, 31))
+        self.iRefInvL.setGeometry(QtCore.QRect(300, 210, 181, 31))
         self.iRefInvL.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
         self.iRefInvL.setText("")
         self.iRefInvL.setObjectName("iRefInvL")
-        
-
-        self.iRefInvS = QtWidgets.QComboBox(self.centralwidget)
-        self.iRefInvS.setObjectName("iRefInvS")
-        self.iRefInvS.setGeometry(QtCore.QRect(270, 200, 181, 31))
-        self.iRefInvS.setStyleSheet("background-color: rgb(225, 225, 225);\n"
-"font: 12pt \"Arial\";\n"
-"border-radius: 12px;")
-        self.iRefInvS.setVisible(False)  # Inicialmente oculto
-        self.iRefInvS.currentIndexChanged.connect(self.updateProduct)
 
         self.prodExists = QtWidgets.QCheckBox(self.centralwidget)
-        self.prodExists.setObjectName("prodExists")
-        self.prodExists.setGeometry(QtCore.QRect(120, 130, 131, 21))
+        self.prodExists.setGeometry(QtCore.QRect(150, 130, 241, 21))
         self.prodExists.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(255, 255, 255);")
+"color: rgb(255, 255, 255);\n"
+"font: 14pt \"Tw Cen MT Condensed Extra Bold\";")
+        self.prodExists.setObjectName("prodExists")
         self.prodExists.stateChanged.connect(self.toggle_iRef)
 
         ######## Vr Unit Line Edit #############
         self.iUnit = QtWidgets.QLineEdit(self.centralwidget)
-        self.iUnit.setGeometry(QtCore.QRect(170, 230, 181, 31))
+        self.iUnit.setGeometry(QtCore.QRect(300, 290, 181, 31))
         self.iUnit.setStyleSheet("background-color: rgb(225, 225, 225);\n"
 "font: 12pt \"Arial\";\n"
 "border-radius: 12px;")
@@ -176,6 +190,22 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.iUnit.setObjectName("iUnit")
         self.iUnit.textChanged.connect(self.fVlr)
 
+        self.eCantInv_2 = QtWidgets.QLabel(self.centralwidget)
+        self.eCantInv_2.setGeometry(QtCore.QRect(150, 290, 121, 31))
+        font = QtGui.QFont()
+        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.eCantInv_2.setFont(font)
+        self.eCantInv_2.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 63 14pt \"Bahnschrift SemiBold\";\n"
+"font: 18pt \"Tw Cen MT Condensed Extra Bold\";")
+        self.eCantInv_2.setObjectName("eCantInv_2")
+
+        self.iRefInvS.setVisible(False)
         self.cargar()
         # AddProducts.setCentralWidget(self.centralwidget)
         # self.statusbar = QtWidgets.QStatusBar(AddProducts)
@@ -197,6 +227,7 @@ class Ui_AddProducts(QtWidgets.QDialog):
         self.btnBackInv.setText(_translate("AddProducts", "Atrás"))
         self.tittle_2.setText(_translate("AddProducts", "AL INVENTARIO"))
         self.prodExists.setText(_translate("AddProducts", "El producto ya existe?"))
+        self.eCantInv_2.setText(_translate("AddProducts", "Precio:"))
     
     def fCant(self, data):
         self.cant = data

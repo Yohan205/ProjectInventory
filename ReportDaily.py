@@ -42,7 +42,7 @@ class Ui_ReportDaily(QtWidgets.QDialog):
 "")
         self.tittleDi.setObjectName("tittleDi")
         self.btnBackDi = QtWidgets.QPushButton(self.centralwidget)
-        self.btnBackDi.setGeometry(QtCore.QRect(20, 390, 91, 41))
+        self.btnBackDi.setGeometry(QtCore.QRect(10, 410, 91, 41))
         self.btnBackDi.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnBackDi.setStyleSheet("background-color: rgb(50, 185, 41);\n"
 "color: rgb(255, 255, 255);\n"
@@ -51,32 +51,51 @@ class Ui_ReportDaily(QtWidgets.QDialog):
         self.btnBackDi.setObjectName("btnBackDi")
         self.btnBackDi.clicked.connect(self.returnMain)
         
-        self.btnNext = QtWidgets.QPushButton(self.centralwidget)
-        self.btnNext.setGeometry(QtCore.QRect(510, 390, 131, 41))
-        self.btnNext.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btnNext.setStyleSheet("background-color: rgb(249, 167, 25);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;\n"
-"font: 87 14pt \"Arial Black\";")
-        self.btnNext.setObjectName("btnNext")
-        
         self.listRef = QtWidgets.QListWidget(self.centralwidget)
-        self.listRef.setGeometry(QtCore.QRect(120, 110, 131, 261))
-        self.listRef.setStyleSheet("")
+        self.listRef.setGeometry(QtCore.QRect(120, 130, 131, 261))
+        self.listRef.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.listRef.setObjectName("listRef")
         self.listProd = QtWidgets.QListWidget(self.centralwidget)
-        self.listProd.setGeometry(QtCore.QRect(250, 110, 181, 261))
-        self.listProd.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(125,216,87, 255), stop:1 rgba(4,155,180, 255));")
+        self.listProd.setGeometry(QtCore.QRect(250, 130, 181, 261))
+        self.listProd.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.listProd.setObjectName("listProd")
         self.listCant = QtWidgets.QListWidget(self.centralwidget)
-        self.listCant.setGeometry(QtCore.QRect(430, 110, 61, 261))
-        self.listCant.setStyleSheet("")
+        self.listCant.setGeometry(QtCore.QRect(430, 130, 91, 261))
+        self.listCant.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.listCant.setObjectName("listCant")
 
         self.eTotal = QtWidgets.QLabel(self.centralwidget)
-        self.eTotal.setGeometry(QtCore.QRect(200, 390, 161, 31))
-        self.eTotal.setStyleSheet("")
+        self.eTotal.setGeometry(QtCore.QRect(330, 410, 191, 31))
+        self.eTotal.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"font: 87 12pt \"Arial Black\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius:8px;\n"
+"")
         self.eTotal.setObjectName("eTotal")
+        self.iRefGe = QtWidgets.QLabel(self.centralwidget)
+        self.iRefGe.setGeometry(QtCore.QRect(120, 100, 131, 31))
+        self.iRefGe.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"font: 87 12pt \"Arial Black\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius:8px;\n"
+"")
+        self.iRefGe.setObjectName("iRefGe")
+        self.iVenDi = QtWidgets.QLabel(self.centralwidget)
+        self.iVenDi.setGeometry(QtCore.QRect(430, 100, 91, 31))
+        self.iVenDi.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"font: 87 12pt \"Arial Black\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius:8px;\n"
+"")
+        self.iVenDi.setObjectName("iVenDi")
+        self.iProdDi = QtWidgets.QLabel(self.centralwidget)
+        self.iProdDi.setGeometry(QtCore.QRect(250, 100, 181, 31))
+        self.iProdDi.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"font: 87 12pt \"Arial Black\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius:8px;\n"
+"")
+        self.iProdDi.setObjectName("iProdDi")
 
         self.cargar()
         self.retranslateUi(ReportDaily)
@@ -87,7 +106,10 @@ class Ui_ReportDaily(QtWidgets.QDialog):
         ReportDaily.setWindowTitle(_translate("ReportDaily", "Informe Diario de Ventas"))
         self.tittleDi.setText(_translate("ReportDaily", "INFORME DIARIO DE VENTAS"))
         self.btnBackDi.setText(_translate("ReportDaily", "Atrás"))
-        self.btnNext.setText(_translate("ReportDaily", "Siguiente"))
+        self.eTotal.setText(_translate("ReportDaily", " Total Ventas:"))
+        self.iRefGe.setText(_translate("ReportDaily", " Referencia"))
+        self.iVenDi.setText(_translate("ReportDaily", " Ventas"))
+        self.iProdDi.setText(_translate("ReportDaily", " Productos"))
 
     def cargar(self):
         if os.path.isfile('DataBase/data.csv'):
